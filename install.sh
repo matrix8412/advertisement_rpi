@@ -4,10 +4,7 @@ echo "Creating directories...\n"
 mkdir -p /opt/cron/scripts
 
 echo "Copying PHP scripts...\n"
-cp -f opt/scripts/device_discovery.php /opt/cron/scripts/
-cp -f opt/scripts/device_stats.php /opt/cron/scripts/
-cp -f opt/scripts/check_files.php /opt/cron/scripts/
-cp -f opt/scripts/network_stats.php /opt/cron/scripts/
+cp -f opt/scripts/* /opt/cron/scripts/
 
 echo "Copying BIN scripts...\n"
 cp -f bin/video_loop /usr/local/bin/
