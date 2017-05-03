@@ -24,5 +24,5 @@ cp -f opt/cloud_every_01m.php /opt/cron/
 cp -f opt/config.php /opt/cron/
 cp -f opt/rc_local.php /opt/cron/
 
-cp -f /bin/video_loop /usr/local/bin/
+cp -f bin/video_loop /usr/local/bin/
 chmod +x /usr/local/bin/video_loop
