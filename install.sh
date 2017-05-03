@@ -34,4 +34,4 @@ apt-get install php5 libapache2-mod-php5 -y
 rm /var/www/html/index.html
 
 cp -f /web_if/* /var/www/html/
-chmod -R www-data:root /var/www/html
+chmod -R www-data:www-data /var/www/html
