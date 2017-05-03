@@ -4,8 +4,8 @@ Installation:<br>
 apt-get update; apt-get -y upgrade; apt-get -y install git;<br> 
 git clone https://github.com/matrix8412/advertisement_rpi.git /tmp/advertisement_rpi;
 
-cd /tmp/advertisement_rpi;
-sh install.sh;
+cd /tmp/advertisement_rpi;<br>
+sh install.sh;<br>
 Installation successfully.<br>
 <br>
 Configuration:<br>
