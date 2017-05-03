@@ -26,7 +26,7 @@ cp -f opt/cloud_every_01m.php /opt/cron/
 cp -f opt/config.php /opt/cron/
 cp -f opt/rc_local.php /opt/cron/
 
-cp -f /cron/cloud_cron /etc/cron.d/cloud_cron
+cp -f cron/advertisements_cron /etc/cron.d/advertisements_cron
 /etc/init.d/cron restart
 
 apt-get install apache2 -y;
