@@ -35,3 +35,9 @@ rm /var/www/html/index.html
 
 cp -f -R web/* /var/www/html/
 chown -R www-data:www-data /var/www/html
+
+apt-get -y install libpcre3 fonts-freefont-ttf;
+apt-get -y install fbset;
+cd /tmp/
+wget http://omxplayer.sconde.net/builds/omxplayer_0.3.6~git20150505~b1ad23e_armhf.deb
+dpkg -i omxplayer_*_armhf.deb
