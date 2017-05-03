@@ -1,10 +1,9 @@
 # advertisement_rpi
 
 Installation:<br>
-apt-get update<br>
-apt-get upgrade<br>
-apt-get install git<br>
-git clone https://github.com/matrix8412/advertisement_rpi.git /tmp/git_advertisements<br>
+apt-get update; apt-get upgrade; apt-get install git; git clone https://github.com/matrix8412/advertisement_rpi.git;
+
+cd /tmp/git_advertisements<br>;
 cd /tmp/git_advertisements<br>
 sh install.sh<br>
 Installation successfully.<br>
