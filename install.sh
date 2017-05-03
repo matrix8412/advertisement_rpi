@@ -29,8 +29,8 @@ cp -f opt/rc_local.php /opt/cron/
 cp -f /cron/cloud_cron /etc/cron.d/cloud_cron
 /etc/init.d/cron restart
 
-apt-get install apache2 -y
-apt-get install php5 libapache2-mod-php5 -y
+apt-get install apache2 -y;
+apt-get install php5 libapache2-mod-php5 -y;
 rm /var/www/html/index.html
 
 cp -f /web_if/* /var/www/html/
