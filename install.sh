@@ -11,17 +11,7 @@ cp -f bin/video_loop /usr/local/bin/
 chmod +x /usr/local/bin/video_loop
 
 echo "Copying CRON scripts...\n"
-cp -f opt/cloud_every_01d.php /opt/cron/
-cp -f opt/cloud_every_12h.php /opt/cron/
-cp -f opt/cloud_every_06h.php /opt/cron/
-cp -f opt/cloud_every_02h.php /opt/cron/
-cp -f opt/cloud_every_01h.php /opt/cron/
-cp -f opt/cloud_every_30m.php /opt/cron/
-cp -f opt/cloud_every_15m.php /opt/cron/
-cp -f opt/cloud_every_05m.php /opt/cron/
-cp -f opt/cloud_every_01m.php /opt/cron/
-cp -f opt/config.php /opt/cron/
-cp -f opt/rc_local.php /opt/cron/
+cp -f opt/* /opt/cron/
 
 cp -f cron/advertisements_cron /etc/cron.d/advertisements_cron
 /etc/init.d/cron restart
@@ -36,5 +26,5 @@ chown -R www-data:www-data /var/www/html
 apt-get -y install libpcre3 fonts-freefont-ttf;
 apt-get -y install fbset;
 cd /tmp/
-wget http://omxplayer.sconde.net/builds/omxplayer_0.3.6~git20150505~b1ad23e_armhf.deb
+wget -nc http://omxplayer.sconde.net/builds/omxplayer_0.3.6~git20150505~b1ad23e_armhf.deb
 dpkg -i omxplayer_*_armhf.deb
