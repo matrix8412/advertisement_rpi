@@ -1,6 +1,8 @@
 <?php
 include("/opt/cron/config.php");
 
+exec("mkdir -p /mnt/videos");
+
 $cloud_key_file = "/var/www/html/config/cloud_settings.xml";
 $sn = exec("cat /proc/cpuinfo | grep Serial | awk '{print $3}'");
 
