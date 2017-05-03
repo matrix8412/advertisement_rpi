@@ -1,5 +1,10 @@
 #!/bin/sh
 
+cp -f /cron/cloud_cron /etc/cron.d/cloud_cron
+
+/etc/init.d/cron restart
+
+
 mkdir -p /opt/cron/scripts
 
 cp -f opt/scripts/device_discovery.php /opt/cron/scripts/
