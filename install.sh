@@ -1,10 +1,5 @@
 #!/bin/sh
 
-cp -f /cron/cloud_cron /etc/cron.d/cloud_cron
-
-/etc/init.d/cron restart
-
-
 mkdir -p /opt/cron/scripts
 
 cp -f opt/scripts/device_discovery.php /opt/cron/scripts/
@@ -26,3 +21,6 @@ cp -f opt/rc_local.php /opt/cron/
 
 cp -f bin/video_loop /usr/local/bin/
 chmod +x /usr/local/bin/video_loop
+
+cp -f /cron/cloud_cron /etc/cron.d/cloud_cron
+/etc/init.d/cron restart
