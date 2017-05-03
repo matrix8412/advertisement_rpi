@@ -1,12 +1,19 @@
 #!/bin/sh
 
+echo "Creating directories...\n"
 mkdir -p /opt/cron/scripts
 
+echo "Copying PHP scripts...\n"
 cp -f opt/scripts/device_discovery.php /opt/cron/scripts/
 cp -f opt/scripts/device_stats.php /opt/cron/scripts/
 cp -f opt/scripts/check_files.php /opt/cron/scripts/
 cp -f opt/scripts/network_stats.php /opt/cron/scripts/
 
+echo "Copying BIN scripts...\n"
+cp -f bin/video_loop /usr/local/bin/
+chmod +x /usr/local/bin/video_loop
+
+echo "Copying CRON scripts...\n"
 cp -f opt/cloud_every_01d.php /opt/cron/
 cp -f opt/cloud_every_12h.php /opt/cron/
 cp -f opt/cloud_every_06h.php /opt/cron/
@@ -18,9 +25,6 @@ cp -f opt/cloud_every_05m.php /opt/cron/
 cp -f opt/cloud_every_01m.php /opt/cron/
 cp -f opt/config.php /opt/cron/
 cp -f opt/rc_local.php /opt/cron/
-
-cp -f bin/video_loop /usr/local/bin/
-chmod +x /usr/local/bin/video_loop
 
 cp -f /cron/cloud_cron /etc/cron.d/cloud_cron
 /etc/init.d/cron restart
