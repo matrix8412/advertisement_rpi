@@ -20,7 +20,7 @@ apt-get install apache2 -y;
 apt-get install php5 libapache2-mod-php5 -y;
 rm /var/www/html/index.html
 
-cp -u -R web/* /var/www/html/
+cp -u -R --recursive web/* /var/www/html/
 chown -R www-data:www-data /var/www/html
 
 apt-get -y install libpcre3 fonts-freefont-ttf;
