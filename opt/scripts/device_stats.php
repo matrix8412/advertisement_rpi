@@ -46,6 +46,8 @@ $load_average15 = $load_average[2];
 $disk_total_space = disk_total_space("/");
 $disk_free_space = disk_free_space("/");
 
+$memory_usage = get_server_memory_usage();
+
 $dir_net = "/sys/class/net";
 $dirs = array_diff(scandir($dir_net), array('..', '.'));
 $net_ifaces = "";
@@ -59,5 +61,5 @@ echo "S/N: ".$sn."\n\n";
 
 echo "CPU model: ".$cpu_model."\n";
 
-$aaa = exec("curl -sk ".$cloud_hostname."api/api.php --data \"action=device_keepalive_rpi&hardware=$hardware&revision=$revision&sn=$sn&cpu_model=$cpu_model&cpuCoreVolts=$cpuCoreVolts&cpuCurFreq=$cpuCurFreq&cpuTemp=$cpuTemp&gpuTemp=$gpuTemp&sdram_c_volts=$sdram_c_volts&sdram_i_volts=$sdram_i_volts&sdram_p_volts=$sdram_p_volts&sysuptime=$sysuptime&loadavg1=$load_average1&loadavg5=$load_average5&loadavg15=$load_average15&net_ifaces=$net_ifaces&disk_free_space=$disk_free_space&disk_total_space=$disk_total_space\"");
+$aaa = exec("curl -sk ".$cloud_hostname."api/api.php --data \"action=device_keepalive_rpi&hardware=$hardware&revision=$revision&sn=$sn&cpu_model=$cpu_model&cpuCoreVolts=$cpuCoreVolts&cpuCurFreq=$cpuCurFreq&cpuTemp=$cpuTemp&gpuTemp=$gpuTemp&sdram_c_volts=$sdram_c_volts&sdram_i_volts=$sdram_i_volts&sdram_p_volts=$sdram_p_volts&sysuptime=$sysuptime&loadavg1=$load_average1&loadavg5=$load_average5&loadavg15=$load_average15&net_ifaces=$net_ifaces&memory_usage=$memory_usage&disk_free_space=$disk_free_space&disk_total_space=$disk_total_space\"");
 ?>
