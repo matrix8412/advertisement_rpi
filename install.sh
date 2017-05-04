@@ -27,3 +27,6 @@ apt-get -y install libpcre3 fonts-freefont-ttf;
 apt-get -y install fbset;
 
 dpkg -i omxplayer_*_armhf.deb
+apt-get -y install -f
+dpkg -i omxplayer_*_armhf.deb
+
