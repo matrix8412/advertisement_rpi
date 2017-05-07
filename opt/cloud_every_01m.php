@@ -1,7 +1,7 @@
 <?php
 $webif_config_dir = "/var/www/html/config";
 
-if(!file_exist($webif_config_dir)){
+if(!file_exists($webif_config_dir)){
   exec("mkdir -p /var/www/html/config");
 }
 
