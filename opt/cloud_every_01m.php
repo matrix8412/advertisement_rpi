@@ -1,4 +1,10 @@
 <?php
+$webif_config_dir = "/var/www/html/config";
+
+if(!file_exist($webif_config_dir)){
+  exec("mkdir -p /var/www/html/config");
+}
+
 exec("sudo mkdir -p /run/advrpi_files");
 exec("sudo mkdir -p /run/advrpi_files/xml");
 
