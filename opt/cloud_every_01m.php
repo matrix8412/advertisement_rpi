@@ -2,7 +2,8 @@
 $webif_config_dir = "/var/www/html/config";
 
 if(!file_exists($webif_config_dir)){
-  exec("mkdir -p /var/www/html/config");
+  exec("mkdir -p $webif_config_dir");
+  exec("chown -R www-data:www-data $webif_config_dir");
 }
 
 exec("sudo mkdir -p /run/advrpi_files");
