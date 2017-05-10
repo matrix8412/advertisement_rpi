@@ -16,6 +16,8 @@ function get_server_memory_usage(){
 
 
 
+$hostname = exec("hostname");
+$local_ip = exec("hostname -I");
 $cpu_model = explode(": ", exec("cat /proc/cpuinfo | grep \"model name\""));
 $cpu_model = $cpu_model[1];
 $hardware = exec("cat /proc/cpuinfo | grep Hardware | awk '{print $3}'");
@@ -76,5 +78,5 @@ echo "S/N: ".$sn."\n\n";
 
 echo "CPU model: ".$cpu_model."\n";
 
-$aaa = exec("curl -sk ".$cloud_hostname."api/api.php --data \"action=device_keepalive_rpi&hardware=$hardware&revision=$revision&sn=$sn&cpu_model=$cpu_model&cpuCoreVolts=$cpuCoreVolts&cpuCurFreq=$cpuCurFreq&cpuTemp=$cpuTemp&gpuTemp=$gpuTemp&sdram_c_volts=$sdram_c_volts&sdram_i_volts=$sdram_i_volts&sdram_p_volts=$sdram_p_volts&sysuptime=$sysuptime&loadavg1=$load_average1&loadavg5=$load_average5&loadavg15=$load_average15&net_ifaces=$net_ifaces&memory_usage=$memory_usage&disk_free_space=$disk_free_space&disk_total_space=$disk_total_space\"");
+$aaa = exec("curl -sk ".$cloud_hostname."api/api.php --data \"action=device_keepalive_rpi&hardware=$hardware&revision=$revision&sn=$sn&cpu_model=$cpu_model&hostname=$hostname&local_ip=$local_ip&cpuCoreVolts=$cpuCoreVolts&cpuCurFreq=$cpuCurFreq&cpuTemp=$cpuTemp&gpuTemp=$gpuTemp&sdram_c_volts=$sdram_c_volts&sdram_i_volts=$sdram_i_volts&sdram_p_volts=$sdram_p_volts&sysuptime=$sysuptime&loadavg1=$load_average1&loadavg5=$load_average5&loadavg15=$load_average15&net_ifaces=$net_ifaces&memory_usage=$memory_usage&disk_free_space=$disk_free_space&disk_total_space=$disk_total_space\"");
 ?>
