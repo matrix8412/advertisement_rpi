@@ -13,8 +13,10 @@ $date3 = DateTime::createFromFormat('H:i', $hdmi_control[2]);
 
 if($date1 > $date2 && $date1 < $date3){
   exec("/opt/vc/bin/tvservice -M");
+  echo "Turning on HDMI...\n";
 }else{
   exec("/opt/vc/bin/tvservice -o");
+  echo "Turning off HDMI...\n";
 }
 
 ?>
