@@ -1,9 +1,7 @@
 <?php
 include("/opt/cron/config.php");
 
-$sn = exec("cat /proc/cpuinfo | grep Serial | awk '{print $3}'")
-$time_on = "";
-$time_off = "";
+$sn = exec("cat /proc/cpuinfo | grep Serial | awk '{print $3}'");
 
 $current_time = date("H:i");
 $hdmi_control = explode("-", exec("curl -sk ".$cloud_hotname."/api/api.php --data \"action=get_hdmi_control&sn=$sn\""));
