@@ -2,16 +2,16 @@
 include("/opt/cron/config.php");
 
 function get_server_memory_usage(){
- 
-	$free = shell_exec('free');
-	$free = (string)trim($free);
-	$free_arr = explode("\n", $free);
-	$mem = explode(" ", $free_arr[1]);
-	$mem = array_filter($mem);
-	$mem = array_merge($mem);
-	$memory_usage = $mem[2]/$mem[1]*100;
- 
-	return $memory_usage;
+
+        $free = shell_exec('free');
+        $free = (string)trim($free);
+        $free_arr = explode("\n", $free);
+        $mem = explode(" ", $free_arr[1]);
+        $mem = array_filter($mem);
+        $mem = array_merge($mem);
+        $memory_usage = $mem[2]/$mem[1]*100;
+
+        return $memory_usage;
 }
 
 
@@ -78,5 +78,18 @@ echo "S/N: ".$sn."\n\n";
 
 echo "CPU model: ".$cpu_model."\n";
 
-$aaa = exec("curl -sk ".$cloud_hostname."api/api.php --data \"action=device_keepalive_rpi&hardware=$hardware&revision=$revision&sn=$sn&cpu_model=$cpu_model&hostname=$hostname&local_ip=$local_ip&cpuCoreVolts=$cpuCoreVolts&cpuCurFreq=$cpuCurFreq&cpuTemp=$cpuTemp&gpuTemp=$gpuTemp&sdram_c_volts=$sdram_c_volts&sdram_i_volts=$sdram_i_volts&sdram_p_volts=$sdram_p_volts&sysuptime=$sysuptime&loadavg1=$load_average1&loadavg5=$load_average5&loadavg15=$load_average15&net_ifaces=$net_ifaces&memory_usage=$memory_usage&disk_free_space=$disk_free_space&disk_total_space=$disk_total_space\"");
+
+$hdmi_state = exec("/opt/vc/bin/tvservice -s");
+$hdmi_state = explode(" ", $hdmi_state);
+if($hdmi_state[1] == "0x120002"){
+    echo "HDMI is down \n";
+    $hdmi_status = "down";
+}else{
+    $hdmi_status = "up";
+    echo "HDMI is up \n";
+}
+
+
+$aaa = exec("curl -sk ".$cloud_hostname."api/api.php --data \"action=device_keepalive_rpi&hardware=$hardware&revision=$revision&sn=$sn&cpu_model=$cpu_model&hostname=$hostname&local_ip=$local_ip&cpuCoreVolts=$cpuCoreVolts&cpuCurFreq=$cpuCurFreq&cpuTemp=$cpuTemp&gpuTemp=$gpuTemp&sdram_c_volts=$sdram_c_volts&sdram_i_volts=$sdram_i_volts&sdram_p_volts=$sdram_p_volts&sysuptime=$sysuptime&loadavg1=$load_average1&loadavg5=$load_average5&loadavg15=$load_average15&net_ifaces=$net_ifaces&memory_usage=$memory_usage&disk_free_space=$disk_free_space&disk_total_space=$disk_total_space&hdmi_state=$hdmi_status\"");
+
 ?>
