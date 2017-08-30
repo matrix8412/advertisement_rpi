@@ -14,8 +14,9 @@ $hdmi_status = explode(" ", exec("tvservice -s"));
 $current_time = date("H:i:s");
 
 echo $hdmi_status[1]."\n";
-if($hdmi_timer = "on"){
+if($hdmi_timer == "on"){
     if($current_time > $hdmi_control[1] && $current_time < $hdmi_control[2]){
+        echo "OFF\n";
         if($hdmi_status[1] == $hdmi_state_off){
             echo "HDMI status is OFF\n";
             exec("/opt/vc/bin/tvservice -p");
@@ -24,7 +25,7 @@ if($hdmi_timer = "on"){
             echo "HDMI status is ON\n";
         }
     }else{
-        if($hdmi_status[1] == $hdmi_state_on){
+        if($hdmi_status[1] == $hdmi_state_off){
             echo "HDMI status is OFF\n";
         }else{
             echo "HDMI status is ON\n";
@@ -33,7 +34,9 @@ if($hdmi_timer = "on"){
         }
     }
 }else{
-    exec("/opt/vc/bin/tvservice -p");
+    if($hdmi_status[1] == $hdmi_state_off){
+        exec("/opt/vc/bin/tvservice -p");
+    }
 }
 ?>
 
