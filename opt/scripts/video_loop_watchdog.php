@@ -1,4 +1,6 @@
 <?php
+include("/opt/cron/config.php");
+
 $pid = exec("ps axf |grep \"sudo /usr/local/bin/video_loop\" | grep -v grep | awk '{print $1}'");
 $sn = exec("cat /proc/cpuinfo | grep Serial | awk '{print $3}'");
 
