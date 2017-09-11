@@ -30,3 +30,5 @@ dpkg -i omxplayer_*_armhf.deb
 apt-get -y install -f
 dpkg -i omxplayer_*_armhf.deb
 
+rm -r /tmp/advertisement_rpi
+
