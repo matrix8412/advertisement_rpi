@@ -8,13 +8,24 @@ $hdmi_timer = $hdmi_control[0];
 $hdmi_status = explode(" ", exec("tvservice -s"));
 
 $current_time = date("H:i:s");
-
-if($pid != " " && $pid != ""){
-  echo "Video loop running.\n";
-}else{
-  exec("sudo /usr/local/bin/video_loop > /dev/null 2>&1 &");
-  echo "Player not running. Starting Video loop...\n";
-}
-
+if($hdmi_timer == "on"){
+    if($current_time > $hdmi_control[1] && $current_time < $hdmi_control[2]){
+      if($pid != " " && $pid != ""){
+        echo "Video loop running.\n";
+      }else{
+        exec("sudo /usr/local/bin/video_loop > /dev/null 2>&1 &");
+        echo "Player not running. Starting Video loop...\n";
+      }
+    }else{
+      exec("sudo killall video_loop");
+    }
+  }else{
+      if($pid != " " && $pid != ""){
+        echo "Video loop running.\n";
+      }else{
+        exec("sudo /usr/local/bin/video_loop > /dev/null 2>&1 &");
+        echo "Player not running. Starting Video loop...\n";
+      }
+  }
 
 ?>
