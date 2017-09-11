@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 git clone https://github.com/matrix8412/advertisement_rpi.git /tmp/advertisement_rpi;
 
