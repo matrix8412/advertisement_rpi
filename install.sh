@@ -24,7 +24,7 @@ cp -u -R --recursive web/* /var/www/html/
 chown -R www-data:www-data /var/www/html
 
 apt-get -y install libpcre3 fonts-freefont-ttf;
-apt-get -y install fbset;
+apt-get -y install fbset fbgrab;
 
 dpkg -i omxplayer_*_armhf.deb
 apt-get -y install -f
