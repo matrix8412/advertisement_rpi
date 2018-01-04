@@ -17,7 +17,7 @@ cp -f cron/advertisements_cron /etc/cron.d/advertisements_cron
 /etc/init.d/cron restart
 
 apt-get install apache2 -y;
-apt-get install php5 libapache2-mod-php5 -y;
+apt-get install php libapache2-mod-php php-xml omxplayer -y;
 rm /var/www/html/index.html
 
 cp -u -R --recursive web/* /var/www/html/
@@ -26,9 +26,9 @@ chown -R www-data:www-data /var/www/html
 apt-get -y install libpcre3 fonts-freefont-ttf;
 apt-get -y install fbset fbgrab;
 
-dpkg -i omxplayer_*_armhf.deb
-apt-get -y install -f
-dpkg -i omxplayer_*_armhf.deb
+#dpkg -i omxplayer_*_armhf.deb
+#apt-get -y install -f
+#dpkg -i omxplayer_*_armhf.deb
 
 rm -r /tmp/advertisement_rpi
 
